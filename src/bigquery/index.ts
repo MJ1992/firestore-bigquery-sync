@@ -383,13 +383,13 @@ export class FirestoreBigQueryEventHistoryTracker
       }
       const options: TableMetadata = { friendlyName: dataTableName, schema };
 
-      //Add partitioning
-      await partitioning.addPartitioningToSchema(schema.fields);
+      // //Add partitioning
+      // await partitioning.addPartitioningToSchema(schema.fields);
 
-      await partitioning.updateTableMetadata(options);
+      // await partitioning.updateTableMetadata(options);
 
-      // Add clustering
-      await clustering.updateClustering(options);
+      // // Add clustering
+      // await clustering.updateClustering(options);
 
       try {
         await table.create(options);
