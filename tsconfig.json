@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "lib",
+    "types": ["node"],
+    "target": "ES2020",
+    "skipLibCheck": true,
+    "module": "commonjs"
+  },
+  "include": ["src"]
+}
