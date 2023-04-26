@@ -42,7 +42,7 @@ export { RawChangelogSchema, RawChangelogViewSchema } from "./schema";
 
 interface SchemaField {
   name: string;
-  mode: "REQUIRED" | "NULLABLE";
+  mode?: "REQUIRED" | "NULLABLE";
   type: "STRING" | "INTEGER" | "FLOAT" | "BOOLEAN" | "TIMESTAMP" | "ARRAY" | "RECORD";
   description?: string;
   fields?: SchemaField[]
@@ -113,7 +113,7 @@ export class FirestoreBigQueryEventHistoryTracker
           document_name: event.documentName,
           document_id: event.documentId,
           operation: ChangeType[event.operation],
-          data: JSON.stringify(this.serializeData(event.data)),
+          ...this.serializeData(event.data),
           old_data: event.oldData
             ? JSON.stringify(this.serializeData(event.oldData))
             : null,
