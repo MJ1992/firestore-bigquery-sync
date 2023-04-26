@@ -218,6 +218,7 @@ export class FirestoreBigQueryEventHistoryTracker
             return resolve(table);
           }
         } catch (ex) {
+          console.log(ex)
           clearInterval(handle);
           logs.failedToInitializeWait(ex.message);
         }
